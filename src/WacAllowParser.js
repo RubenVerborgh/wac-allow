@@ -1,6 +1,16 @@
 const HEADER_NAME = 'wac-allow';
 
 export default class WacAllowParser {
+  /** Parses the given string, headers, or response */
+  parse(value = '') {
+    if (typeof value === 'string')
+      return this.parseString(value);
+    else if (typeof value.headers === 'object')
+      return this.parseResponse(value);
+    else
+      return this.parseHeaders(value);
+  }
+
   /** Parses the given WAC-Allow string */
   parseString(value = '') {
     // Always include user and public
