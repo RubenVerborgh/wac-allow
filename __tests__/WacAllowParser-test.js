@@ -95,5 +95,17 @@ describe('WacAllowParser', () => {
         });
       });
     });
+
+    describe('parseResponse', () => {
+      test('parses a Response object', () => {
+        const headers = new Map();
+        headers.set('wac-allow', 'user="read"');
+        const response = { headers };
+        expect(parser.parseResponse(response)).toEqual({
+          user: new Set(['read']),
+          public: new Set(),
+        });
+      });
+    });
   });
 });

@@ -33,4 +33,9 @@ export default class WacAllowParser {
       headers.get(HEADER_NAME) : headers[HEADER_NAME];
     return this.parseString(header) || '';
   }
+
+  /** Parses the given response object */
+  parseResponse({ headers } = {}) {
+    return this.parseHeaders(headers);
+  }
 }
