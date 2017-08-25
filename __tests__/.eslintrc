@@ -1,0 +1,15 @@
+{
+  globals: {
+    afterAll: true,
+    afterEach: true,
+    beforeAll: true,
+    beforeEach: true,
+    describe: true,
+    expect: true,
+    test: true,
+  },
+
+  rules: {
+    max-nested-callbacks: 0,
+  },
+}

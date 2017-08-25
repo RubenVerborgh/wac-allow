@@ -1,0 +1,41 @@
+{
+  "name": "wac-allow",
+  "version": "1.0.0",
+  "description": "Parser of the WAC-Allow HTTP header.",
+  "engines": {
+    "node": ">=6.0"
+  },
+  "main": "lib/index.js",
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "build": "babel src -d lib",
+    "prepare": "npm run build",
+    "lint": "eslint src/**/*.js __tests__/**/*.js",
+    "test": "jest",
+    "test:dev": "jest --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/solid/wac-allow.git"
+  },
+  "keywords": [
+    "http",
+    "permissions"
+  ],
+  "author": "Ruben Verborgh <ruben@verborgh.org> (https://ruben.verborgh.org/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/solid/wac-allow/issues"
+  },
+  "homepage": "https://github.com/solid/wac-allow#readme",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-eslint": "^7.2.3",
+    "babel-jest": "^20.0.3",
+    "babel-preset-env": "^1.6.0",
+    "eslint": "^4.5.0",
+    "jest": "^20.0.4"
+  }
+}
