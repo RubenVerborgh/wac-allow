@@ -1,3 +1,5 @@
+const HEADER_NAME = 'wac-allow';
+
 export default class WacAllowParser {
   /** Parses the given WAC-Allow string */
   parseString(value = '') {
@@ -23,5 +25,12 @@ export default class WacAllowParser {
       }
     }
     return permissions;
+  }
+
+  /** Parses the given headers object */
+  parseHeaders(headers = {}) {
+    const header = typeof headers.get === 'function' ?
+      headers.get(HEADER_NAME) : headers[HEADER_NAME];
+    return this.parseString(header) || '';
   }
 }

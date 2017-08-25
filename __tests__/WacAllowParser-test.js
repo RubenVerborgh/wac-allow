@@ -72,5 +72,28 @@ describe('WacAllowParser', () => {
         });
       });
     });
+
+    describe('parseHeaders', () => {
+      test('parses a plain object', () => {
+        const headers = {
+          'other': 'other',
+          'wac-allow': 'user="read"',
+        };
+        expect(parser.parseHeaders(headers)).toEqual({
+          user: new Set(['read']),
+          public: new Set(),
+        });
+      });
+
+      test('parses a Headers object', () => {
+        const headers = new Map();
+        headers.set('other', 'other');
+        headers.set('wac-allow', 'user="read"');
+        expect(parser.parseHeaders(headers)).toEqual({
+          user: new Set(['read']),
+          public: new Set(),
+        });
+      });
+    });
   });
 });
