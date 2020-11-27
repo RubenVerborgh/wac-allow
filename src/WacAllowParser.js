@@ -21,7 +21,7 @@ export default class WacAllowParser {
 
     // Find all user entries in the string
     let entry;
-    const entryMatcher = /(\w+)\s*=\s*"?\s*((?:\s*[^"\s]+)*)\s*"?/g;
+    const entryMatcher = /(\w+)\s*=\s*"?\s*((?:\s*[^",\s]+)*)\s*"?/g;
     while (entry = entryMatcher.exec(value)) {
       // Create a permissions set for the user
       const [, user, allowed] = entry;
